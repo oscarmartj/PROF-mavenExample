@@ -70,8 +70,8 @@
 				<configuration>
 					<instrumentation>
 						<excludes>
-							<exclude>es/upm/grise/profundizacion2019/src/test/*</exclude>
-							<exclude>es/upm/grise/profundizacion2019/src/it/*</exclude>
+							<exclude>es/upm/grise/profundizacion2019/mavenExample/*Test.java</exclude>
+							<exclude>es/upm/grise/profundizacion2019/mavenExample/*IT.java</exclude>
 						</excludes>
 					</instrumentation>
 					<formats>
