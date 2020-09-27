@@ -14,21 +14,33 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<!-- <maven.compiler.source>10.0</maven.compiler.source> -->
+		<!-- <maven.compiler.target>10.0</maven.compiler.target> -->
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.13</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
+
 		<plugins>
+
+			<!-- https://stackoverflow.com/questions/49398894/unable-to-compile-simple-java-10-java-11-project-with-maven -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<release>10</release>
+				</configuration>
+			</plugin>
+
 			<!-- Failsafe plugin needs to be declared explicitly -->
 			<!-- Surefire is declared implicitly -->
 			<plugin>
@@ -70,7 +82,7 @@
 				<configuration>
 					<instrumentation>
 						<excludes>
-							<exclude>es/upm/grise/profundizacion2019/mavenExample/*Test.java</exclude>
+							<exclude>es/upm/grise/profundizacion2019/mavenExample/IT*.java</exclude>
 							<exclude>es/upm/grise/profundizacion2019/mavenExample/*IT.java</exclude>
 						</excludes>
 					</instrumentation>
@@ -79,6 +91,7 @@
 						<format>html</format>
 					</formats>
 				</configuration>
+
 			</plugin>
 
 			<!-- See https://www.mkyong.com/maven/maven-jacoco-code-coverage-example/ -->
@@ -86,14 +99,15 @@
 			<plugin>
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.5</version>
+				<version>0.8.6</version>
 				<executions>
 					<execution>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
 					</execution>
-					<!-- attached to Maven test phase --> 
+
+					<!-- attached to Maven test phase -->
 					<execution>
 						<id>report</id>
 						<phase>test</phase>

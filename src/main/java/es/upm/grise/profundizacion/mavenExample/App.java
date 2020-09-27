@@ -1,4 +1,4 @@
-package es.upm.grise.profundizacion2019.mavenExample;
+package es.upm.grise.profundizacion.mavenExample;
 
 /**
  * Hello world!
