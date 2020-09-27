@@ -1,1 +1,1 @@
-# Examen of a maven project
+# Example of a maven project
